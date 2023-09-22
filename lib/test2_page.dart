@@ -88,3 +88,16 @@ double calculateBMI(double weight, double height) {
   double heightInMeters =height/100;
   return weight/(heightInMeters * heightInMeters);
 }
+Color calculateColor(double bmi){ 
+  if (bmi<18.5){ 
+    return Colors.blue;
+    }else if (bmi <24.90){ 
+      return Colors.green;
+    }else if ( bmi < 29.90){ 
+      return Colors.orange;
+    }else{ 
+      return Colors.red;
+    }
+    }
+    }
+
