@@ -10,7 +10,7 @@ class Test2Page extends StatefulWidget {
 }
 
 class _Test2PageState extends State<Test2Page> {
-  get appBarColor => null;
+  //get appBarColor => null;
   double weight = 50; // Valor inicial del peso
   double height = 150; // Valor inicial de la altura
   double bmi = 0; // Variable para almacenar el resultado del IMC
@@ -24,9 +24,9 @@ class _Test2PageState extends State<Test2Page> {
     return Scaffold(
       appBar: AppBar(
         title: Text(" IMC APP"),
-        backgroundColor:  Colors.amber,
+        backgroundColor: appBarColor,
       ),
-        );
+      
      Body:Padding(
       padding: EdgeInsets.all(10.0),
       child: Column( 
@@ -60,16 +60,31 @@ class _Test2PageState extends State<Test2Page> {
                 });
               },
             ),
-
-            
-        ],
+            Text("Altura: ${height.toStringAsFixed(1)} cm"),
+            ElevatedButton(
+              onPressed: () {
+                // Calcular el IMC cuando se presiona el botón "Calcular"
+                setState(() {
+                  bmi = calculateBMI(weight, height);
+                });
+              },
+              child: Text("Calcular"),
+           ),
+            Text(
+              "Su IMC es: ${bmi.toStringAsFixed(2)}",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
-
-      );
-              
+    );
   }
 
-}
 
-
+double calculateBMI(double weight, double height) {
+  double heightInMeters =height/100;
+  return weight/(heightInMeters * heightInMeters);
 }
