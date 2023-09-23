@@ -91,11 +91,11 @@ class _Test2PageState extends State<Test4Page> {
     if (bmi < 18.5) {
       return Image.asset('assets/images/flaco.jpg');
     } else if (bmi < 24.90) {
-      return Image.asset('assets/images/gordo.jpg');
+      return Image.asset('assets/images/gordaso.jpg');
     } else if (bmi < 29.90) {
       return Image.asset('assets/images/gordo.png');
     } else {
-      return Image.asset('assets/images/ramon.jpg');
+      return Image.asset('assets/images/medio.jpg');
     }
   }
 }
