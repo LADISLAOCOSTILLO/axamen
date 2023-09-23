@@ -1,6 +1,4 @@
 
-
-import 'package:axamen/tes3.dart';
 import 'package:axamen/test2_page.dart';
 import 'package:flutter/material.dart';
 

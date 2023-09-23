@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class Test2Page extends StatefulWidget {
@@ -100,4 +98,3 @@ Color calculateColor(double bmi){
     }
     }
     }
-
