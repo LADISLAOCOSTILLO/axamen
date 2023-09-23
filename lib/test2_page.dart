@@ -27,7 +27,7 @@ class _Test2PageState extends State<Test2Page> {
         backgroundColor: appBarColor,
       ),
       
-     Body:Padding(
+     body:Padding(
       padding: EdgeInsets.all(10.0),
       child: Column( 
         children: [
