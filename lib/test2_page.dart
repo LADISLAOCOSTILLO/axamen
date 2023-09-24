@@ -17,7 +17,7 @@ class _Test2PageState extends State<Test4Page> {
   @override
   Widget build(BuildContext context) {
     bmi = calculateBMI(weight, height);
-    Image image = calculateImage(bmi);
+    Widget imageWithMessage = calculateImageWithMessage(bmi);
 
     return Scaffold(
       appBar: AppBar(
@@ -63,7 +63,7 @@ class _Test2PageState extends State<Test4Page> {
                 // Calcular el IMC cuando se presiona el botón "Calcular"
                 setState(() {
                   bmi = calculateBMI(weight, height);
-                  image = calculateImage(bmi);
+                  imageWithMessage = calculateImageWithMessage(bmi);
                 });
               },
               child: Text("Calcular"),
@@ -75,7 +75,7 @@ class _Test2PageState extends State<Test4Page> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            image,
+            imageWithMessage,
           ],
         ),
       ),
@@ -87,17 +87,38 @@ class _Test2PageState extends State<Test4Page> {
     return weight / (heightInMeters * heightInMeters);
   }
 
-  Image calculateImage(double bmi) {
-    if (bmi < 18.5) {
-      return Image.asset('assets/images/flaco.jpg');
-    } else if (bmi < 24.90) {
-      return Image.asset('assets/images/gordaso.jpg');
-    } else if (bmi < 29.90) {
-      return Image.asset('assets/images/gordo.png');
-    } else {
-      return Image.asset('assets/images/medio.jpg');
-    }
+  
+Widget calculateImageWithMessage(double bmi) {
+  String message = "";
+  Image image;
+
+  if (bmi < 18.5) {
+    image = Image.asset('assets/images/MUY_FLACO.JPG');
+    message = "Tu IMC es menor que 18.5. Esto indica bajo peso.";
+  } else if (bmi >= 18.5 && bmi < 24.90) {
+    image = Image.asset("assets/images/SALUDABLE.JPG");
+    message = "Tu IMC está en el rango saludable (18.5 - 24.9).";
+  } else if (bmi >= 24.90 && bmi < 29.90) {
+    image = Image.asset('assets/images/SOBRE_PESO.jpg');
+    message = "Tienes sobrepeso (IMC entre 24.9 y 29.9).";
+  } else {
+    image = Image.asset('assets/images/OBESO.jpg');
+    message = "Tienes obesidad (IMC mayor que 29.9).";
   }
-}
 
-
+  return Column(
+    children: [
+      image,
+      SizedBox(height: 10), // Espacio entre la imagen y el mensaje
+      Text(
+        message,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ],
+  );
+ }
+ }
