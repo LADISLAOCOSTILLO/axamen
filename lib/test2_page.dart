@@ -22,7 +22,7 @@ class _Test2PageState extends State<Test4Page> {
     return Scaffold(
       appBar: AppBar(
         title: Text("IMC APP"),
-        backgroundColor: Colors.blue, // Cambiar el color del AppBar según tu preferencia
+        backgroundColor: const Color.fromARGB(255, 10, 10, 10), // Cambiar el color del AppBar según tu preferencia
       ),
       body: Padding(
         padding: EdgeInsets.all(10.0),
