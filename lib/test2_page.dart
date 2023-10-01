@@ -13,6 +13,7 @@ class _Test2PageState extends State<Test4Page> {
   double weight = 50; // Valor inicial del peso
   double height = 150; // Valor inicial de la altura
   double bmi = 0; // Variable para almacenar el resultado del IMC
+  String message="Presiona el Boton";
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +46,9 @@ class _Test2PageState extends State<Test4Page> {
                   weight = value;
                 });
               },
+
+              activeColor: Color.fromARGB(255, 219, 93, 9), // Cambia el color del área activa
+              inactiveColor: Color.fromARGB(255, 143, 10, 219),
             ),
             Text("Peso: ${weight.toStringAsFixed(1)} kg"),
             Slider(
@@ -56,6 +60,8 @@ class _Test2PageState extends State<Test4Page> {
                   height = value;
                 });
               },
+              activeColor: Color.fromARGB(255, 219, 93, 9),
+              inactiveColor: Color.fromARGB(255, 143, 10, 219),
             ),
             Text("Altura: ${height.toStringAsFixed(1)} cm"),
             ElevatedButton(
